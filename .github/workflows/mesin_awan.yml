@@ -1,0 +1,32 @@
+# ==========================================
+# FILE: .github/workflows/mesin_awan.yml
+# FUNGSI: Denyut Jantung Sistem (Otomatisasi Awan)
+# ==========================================
+
+name: 🤖 Autonomous Karyawan Digital
+
+on:
+  # 1. JADWAL OTOMATIS (CRON JOB)
+  # Sistem akan otomatis menyala setiap 6 jam sekali, setiap hari!
+  schedule:
+    - cron: '0 */6 * * *'
+    
+  # 2. TOMBOL MANUAL
+  # Memungkinkan Anda menyalakan sistem kapan saja dengan sekali klik dari GitHub
+  workflow_dispatch:
+
+jobs:
+  operasi_mata_mata:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Mengunduh DNA Sistem
+        uses: actions/checkout@v3
+
+      - name: 🐍 Menyiapkan Lingkungan Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 🚀 MENGAKTIFKAN MATA-MATA (EKSEKUSI UTAMA)
+        run: python mata_mata.py
